@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.example-container div {
+    background: white;
+    border-radius: 30px;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .refresh {
+    padding: 10px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #bbbbbb;
+    background-image: -webkit-gradient (linear, 40% 0%, 75% 84%, from(#bbbbbb), to(#bbbbbb), color-stop(#bbbbbb))
+}
+.ant-drawer-body{
+    padding: 0px !important; 
+}
+
+.ant-carousel .slick-dots li button {
+    background: #06b6d4;
+    opacity: 0.4;
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+    opacity: 1;
+    background: #06b6d4;
+}
+.ant-modal .ant-modal-content{
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25) !important;
+}
+.ant-modal{
+    padding: 0px !important; 
+}
+.ant-modal-wrap{
+    backdrop-filter: blur(4px);
+
+}
+
+  .ant-menu-submenu-title{
+    padding-left: 0 !important;
+  }
+ .menu-mobile .ant-drawer-header-title{
+    display: flex;
+    flex-direction: row-reverse;
+ }
+ @media only screen and (max-width: 600px) {
+    .ant-menu-item{
+        padding-left: 0 !important;
+      }
+  }
+  .contact .ant-card-meta-title{
+    color: #06B6D4;
+  }
+  .contact .ant-card-meta-description{
+    color: #334155;
+    font-weight: 400;
+  }
+  .contact .ant-card-actions{
+    color: #334155;
+    font-weight: 700;
+  }
+  
+  @-webkit-keyframes borderAnimation {
+    0% {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; 
+    }
+  
+    33% {
+      border-radius: 30% 70% 66% 34% / 37% 36% 64% 63%;
+    }
+  
+    66% {
+      border-radius: 37% 63% 62% 38% / 32% 43% 57% 68%;
+    }
+  
+    100% {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+  }
+  
+  @keyframes borderAnimation {
+    0% {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+  
+    33% {
+      border-radius: 30% 70% 66% 34% / 37% 36% 64% 63%;
+    }
+  
+    66% {
+      border-radius: 37% 63% 62% 38% / 32% 43% 57% 68%;
+    }
+  
+    100% {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+  }
+  .image-style {
+    border: 1;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: borderAnimation 4s linear infinite;
+  }
