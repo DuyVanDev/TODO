@@ -28,7 +28,7 @@ const Todo = ({ todo, onChange }) => {
       onMouseEnter={() => setShowDeleteIcon(true)}
       onMouseLeave={() => setShowDeleteIcon(false)}
       key={todo.id}
-      className="flex items-center  gap-8 w-full border-[1px] rounded-sm p-4 bg-white"
+      className="flex items-center  gap-8 w-full border-[1px] rounded-sm p-4 bg-white px-5"
     >
       <Checkbox
         className={`basis-4 w-full h-full   ${isFocus && "invisible"}`}
