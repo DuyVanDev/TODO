@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         main: "#0066bf",
+        primary : "#f5f5f5"
       },
     },
     container: {

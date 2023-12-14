@@ -43,7 +43,9 @@ export const reducer = (state, action) => {
       };
     case REMOVE_TODO:
       const newTodo = state.todolist.slice();
-      newTodo.splice(action.payload, 1);
+      const itemIndexRemove = state.todolist.findIndex((item) => item.id === action.payload.id);
+      newTodo.splice(itemIndexRemove, 1);
+
       localStorage.setItem("todolist", JSON.stringify(newTodo));
 
       return {
@@ -51,9 +53,14 @@ export const reducer = (state, action) => {
         todolist: newTodo,
       };
     case EDIT_TODO:
+      const {idEdit ,todoName } = action.payload
+      const editTodo = state.todolist.slice();
+      const dataEdit = editTodo.findIndex((item) => item.id ===idEdit);
+      editTodo[dataEdit].todoName = todoName 
+      localStorage.setItem("todolist", JSON.stringify(editTodo));
       return {
         ...state,
-        todolist: filtered,
+        todolist:editTodo,
       };
 
     case TOGGLE_TODO:
@@ -110,13 +117,11 @@ export const reducer = (state, action) => {
       };
 
     case CLEAR_COMPLETE:
-      const newTodoClear= [];
+      const newTodoClear = [];
       for (var list in state.todolist) {
-        if(state.todolist[list].complete != true) {
-          newTodoClear.push(state.todolist[list])
-
+        if (state.todolist[list].complete != true) {
+          newTodoClear.push(state.todolist[list]);
         }
-
       }
       localStorage.setItem("todolist", JSON.stringify(newTodoClear));
 
