@@ -10,9 +10,9 @@ const Todo = ({ todo, onChange }) => {
   const [showDeleteIcon, setShowDeleteIcon] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
 
-  const handleCheckEmptyTodo = (e, idEdit) => {
-    console.log(e.target.value+"".trim() == null);
-    if (e.target.value == "") {
+  const handleCheckEmptyTodo = (idEdit) => {
+    console.log(typeof editTodoC);
+    if (editTodoC == "") {
       dispatch(removeTodo({ id: idEdit }));
       console.log("edit");
     }
@@ -28,7 +28,7 @@ const Todo = ({ todo, onChange }) => {
       onMouseEnter={() => setShowDeleteIcon(true)}
       onMouseLeave={() => setShowDeleteIcon(false)}
       key={todo.id}
-      className="flex items-center  gap-8 w-full border-[1px] rounded-sm p-4 bg-white px-5"
+      className="flex items-center  gap-8 w-full border-[1px] shadow-md rounded-sm p-2 bg-white px-5"
     >
       <Checkbox
         className={`basis-4 w-full h-full   ${isFocus && "invisible"}`}
@@ -40,7 +40,7 @@ const Todo = ({ todo, onChange }) => {
         onSubmit={(e) => {
           e.preventDefault();
           setIsFocus(false);
-          handleCheckEmptyTodo(e, todo.id);
+          handleCheckEmptyTodo(todo.id)
         }}
         className="grow"
       >
@@ -50,14 +50,14 @@ const Todo = ({ todo, onChange }) => {
           onDoubleClick={() => setIsFocus(true)}
           onBlur={(e) => {
             setIsFocus(false);
-            handleCheckEmptyTodo(e, todo.id);
+            handleCheckEmptyTodo(todo.id);
           }}
           className={`  ${
             todo.complete && "line-through text-slate-300"
           }  text-xl font-normal outline-2 
            ${
             isFocus &&
-            "focus:border-black focus:outline-none focus:shadow-inner no-underline text-gray-950"
+            "focus:border-black focus:outline-none shadow-lg focus:shadow-inner no-underline text-gray-950"
           } `}
           value={editTodoC}
           onChange={(e) => {
@@ -67,10 +67,10 @@ const Todo = ({ todo, onChange }) => {
       </form>
       {showDeleteIcon && (
         <button
-          className={`basis-1  ${isFocus && "hidden"}`}
+          className={`basis-1 text-red-600 font-bold ${isFocus && "hidden"}`}
           onClick={() => dispatch(removeTodo({ id: todo.id }))}
         >
-          X
+          x
         </button>
       )}
     </div>
