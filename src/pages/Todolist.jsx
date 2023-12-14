@@ -35,7 +35,6 @@ const Todolist = () => {
   };
 
   var resultHandleCheck = handleCheckComplete();
-  console.log(resultHandleCheck);
   const onChange = (e) => {
     setValue(e.target.value);
     dispatch(filterTodo(e.target.value));
@@ -91,7 +90,7 @@ const Todolist = () => {
                 setTodo({ ...todo, todoName: e.target.value, id: uuidv4() })
               }
               placeholder="What need to be done?"
-              className="bg-[#fefefe] py-3 text-xl font-normal placeholder:italic placeholder:font-medium"
+              className="bg-[#fefefe] py-3 text-xl font-normal placeholder:italic placeholder:font-medium "
             />
           </div>
         </form>
@@ -113,22 +112,24 @@ const Todolist = () => {
       </Button> */}
 
       {JSON.parse(localStorage.getItem("todolist")).length > 0 && (
-        <div className="flex items-center justify-between w-[400px] py-4 border-[1px]">
+        <div className="flex items-center justify-between w-[400px] py-4 border-[1px] bg-white px-2">
           <p className="text-xs">
             {itemLeft >= 2 ? `${itemLeft} items left` : `${itemLeft} item left`}
           </p>
 
           <Radio.Group
+          buttonStyle="outline"
+          optionType="button"
             value={value}
             onChange={onChange}
             size="small"
             className="flex items-center gap-3"
           >
-            <Radio.Button value={1}>All</Radio.Button>
-            <Radio.Button value={2}>Active</Radio.Button>
-            <Radio.Button value={3}>Complete</Radio.Button>
+            <Radio.Button className={`${value != 1 && "border-none outline-none before:w-0 border-yellow-700 text-slate-900"} `} value={1}>All</Radio.Button>
+            <Radio.Button   value={2}>Active</Radio.Button>
+            <Radio.Button  value={3}>Complete</Radio.Button>
           </Radio.Group>
-          <button className="text-xs" onClick={() => dispatch(clearComplete())}>
+          <button className="text-xs hover:underline" onClick={() => dispatch(clearComplete())}>
             Clear complete
           </button>
         </div>

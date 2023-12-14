@@ -14,7 +14,7 @@ export const MainRouter = () => {
         <Routes>
           <Route path=":id" element={<NewsDetailPage />} />
           <Route path="/" element={<Layout />}>
-            <Route index element={<Homes />} />
+            <Route index element={<Todolist />} />
             <Route path="/TodoList" element={<Todolist />} />
           </Route>
         </Routes>

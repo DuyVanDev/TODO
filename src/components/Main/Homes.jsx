@@ -13,6 +13,7 @@ import {
 } from "@ant-design/icons";
 import { useGlobalState } from "../../hooks";
 import { NewsPage } from "../../components";
+import { Link } from "react-router-dom";
 export const Homes = () => {
   const [globalState, dispatch] = useGlobalState();
   const { setting } = globalState;
@@ -510,6 +511,7 @@ export const Homes = () => {
           </div>
         </div>
       </div>
+      <Link to={"/TodoList"}>Link</Link>
       <NewsPage isHome={true} />
     </header>
   );
