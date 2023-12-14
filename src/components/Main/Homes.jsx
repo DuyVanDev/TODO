@@ -511,7 +511,8 @@ export const Homes = () => {
           </div>
         </div>
       </div>
-      <Link to={"/TodoList"}>Link</Link>
+      <Link to={"/TodoList"}>Link
+      </Link>
       <NewsPage isHome={true} />
     </header>
   );

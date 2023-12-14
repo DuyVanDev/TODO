@@ -67,7 +67,7 @@ const Todolist = () => {
       <div className="flex items-center justify-center">
         <form onSubmit={handleSubmit}>
           <div className="flex items-center border-2 w-[400px] bg-[#fefefe] ">
-            {JSON.parse(localStorage.getItem("todolist")).length > 0 && (
+            {JSON.parse(localStorage.getItem("todolist"))?.length > 0 && (
               <div>
                 {resultHandleCheck ? (
                   <DownOutlined
@@ -94,9 +94,7 @@ const Todolist = () => {
             />
           </div>
         </form>
-        {/* <Button onClick={handleSubmit} className="bg-blue-700" type="primary">
-          Add Todo
-        </Button> */}
+       
       </div>
       <div className="flex items-center justify-center flex-col w-[400px]">
         {todolist.map((item) => (
@@ -111,7 +109,7 @@ const Todolist = () => {
         Check All
       </Button> */}
 
-      {JSON.parse(localStorage.getItem("todolist")).length > 0 && (
+      {JSON.parse(localStorage.getItem("todolist"))?.length > 0 && (
         <div className="flex items-center justify-between w-[400px] py-4 border-[1px] bg-white px-2">
           <p className="text-xs">
             {itemLeft >= 2 ? `${itemLeft} items left` : `${itemLeft} item left`}
